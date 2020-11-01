@@ -20,8 +20,10 @@ getShortenUrlRoute.get("/:shortUrl", async (req, res) => {
         } else {
             return res.status(400).json("The short url doesn't exists in our system.");
         }
-    }
-  } catch (error) {
+    } catch (error) {
     console.error("Error while retrieving long url for shorturl code" + shortUrlCode)
+    return res.status(500).json("There is an internal server error.")
   }
 })
+
+module.exports = getShortenUrlRoute
