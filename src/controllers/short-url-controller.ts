@@ -31,14 +31,13 @@ const store = async (req, res, next) => {
     await newUrlSchema.validate({ slug, url })
 
     if (!slug) {
-      slug = nanoid(5)
+      slug = nanoid(8)
     } else {
       const existing = ShortUrl.findOne({ slug })
       if (existing) {
         throw new Error('Slug already in use')
       }
     }
-    slug = slug.toLowerCase()
     const newUrl = { slug, url }
     const created = await ShortUrl.create(newUrl)
     res.json(created)
