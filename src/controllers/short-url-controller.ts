@@ -1,4 +1,4 @@
-const ShortUrl = require('../models/ShortUrl')
+const ShortUrl = require('../models/short-url')
 
 const yup = require('yup')
 const { nanoid } = require('nanoid')
@@ -29,7 +29,7 @@ const store = async (req, res, next) => {
   let { slug, url } = req.body
   try {
     await newUrlSchema.validate({ slug, url })
-    
+
     if (!slug) {
       slug = nanoid(5)
     } else {
