@@ -1,4 +1,4 @@
-const ShortUrl = require('../models/short-url')
+const ShortUrl = require('../models/short-url.ts')
 
 const yup = require('yup')
 const { nanoid } = require('nanoid')
